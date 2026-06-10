@@ -15,11 +15,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
+        // Buat user tes bawaan
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        // Buat produk tes bawaan dengan ID 1 untuk pengetesan manual
+        \App\Models\Product::updateOrCreate(
+            ['id' => 1],
+            [
+                'name' => 'Sepatu Flash Sale',
+                'price' => 100000.00,
+                'stock' => 10,
+            ]
+        );
     }
 }
